@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+	<style type="text/css">
+		body{
+			background-color: #d2fafb;
+		}
+		.navbar-custom { 
+			background-color: #2c003e; 
+		} 
+
+		.navbar-custom .navbar-brand, 
+		.navbar-custom .navbar-text { 
+			color: #2c003e; 
+		}
+		.nav-link.active{ 
+			background-color: #fe346e !important; 
+		} 
+		.nav-link{
+			color: #dee3e2;
+		}
+		.nav-link:hover {
+			color: #fe346e;
+			background-color: #512b58;
+		}
+		#div1{
+			color: #2c003e;
+		}
+		.btn-primary{
+			background-color: #2c003e;
+			border-color: #fe346e;
+		}
+		.btn-primary:hover {
+			background-color: #fe346e;
+			border-color: #2c003e;
+		}
+		.btn-sm{
+			background-color: #2c003e;
+			border-color: #fe346e;
+		}
+		.btn-sm.active{
+			background-color: #2c003e;
+			border-color: #fe346e;
+		}
+		.btn-plus{
+			padding: 5px;
+			padding-top: 0px;
+			padding-bottom: 0px;
+		}
+		.ingreso-table{
+			font-size: 1.1em;
+		}
+
+		#div2{
+			margin-top: 5rem !important;
+			padding-left: 10rem !important;
+		}
+
+		#divsalida{
+			margin-top: 10rem !important;
+			margin-left: 2rem !important;
+			margin-right: 2rem !important;
+		}
+		.badge{
+			font-size: 0.6em;
+		}
+
+	</style>
+
+
+	<title>salida</title>
+</head>
+<body>
+	<div class="container-fluid vh-100">
+		<nav class="navbar fixed-top navbar-custom nav-pills flex-column flex-sm-row">
+			<a class="flex-sm-fill text-sm-center nav-link" href="file:///Users/andrea/Desktop/Documents/EAN/Cuarto%20semestre/ProgramacionAvanzada/Proyecto%20final/index.html">Ingreso</a>
+			<a class="flex-sm-fill text-sm-center nav-link active" href="file:///Users/andrea/Desktop/Documents/EAN/Cuarto%20semestre/ProgramacionAvanzada/Proyecto%20final/salida.html">salida</a>
+			<a class="flex-sm-fill text-sm-center nav-link" href="file:///Users/andrea/Desktop/Documents/EAN/Cuarto%20semestre/ProgramacionAvanzada/Proyecto%20final/administracion.html">Administración</a>
+		</nav>
+		<div class="row center-container h-50 float-center align-items-center" id="divsalida">
+			<div class="col-6 shadow p-3 bg-white rounded h-100">
+				<div class="col-lg-11 col-sm-10 col-11">
+					<div class="form py-5">
+						<div class="row justify-content-center">
+							<div class="col-10" id="div1">
+								<h2>Salida</h2> 
+							</div>
+							<div class="col-10">
+								<form action="">
+									<div class="form-group">
+										<input type="text" class="form-control" id="placa_salida" placeholder="Placa">
+										<small id="" class="form-text form-alert d-none">Error</small>
+									</div>
+									<div>
+										<p>Hora de ingreso: <span id="fecha-ingreso"></span></p>
+									</div>
+									<div>
+										<p>Hora de salida: <span id="fecha-salida"></span></p>
+									</div>
+									<div>
+										<p>Valor a pagar: <span id="valor_pagar"></span></p>
+									</div>
+									<div>
+										<p>Valor ingresado: <span id="valor_ingresado"></span></p>
+									</div>
+									<div>
+										<p>Vueltas: <span id="vueltas"></span></p>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-4 offset-2 px-5 shadow p-3 bg-white rounded h-100">
+				<div class="row" id="div1">
+					<h4>Pagar</h4> 
+				</div>
+				<div class="row">
+					<div class="col-12 ingreso-table">
+						<div class="d-flex flex-row justify-content-between align-items-center ">
+							<strong>$50.000:</strong>
+							<span class="badge badge-secondary" id="cantidad-billete-50000">0</span>
+							<span class="btn btn-primary btn-plus" data-billete="50000"><i class="fas fa-plus-square"></i></span>
+						</div>
+						<div class="d-flex flex-row justify-content-between align-items-center">
+							<strong>$20.000:</strong>
+							<span class="badge badge-secondary" id="cantidad-billete-20000">0</span>
+							<span class="btn btn-primary btn-plus" data-billete="20000"><i class="fas fa-plus-square"></i></span>
+						</div>
+						<div class="d-flex flex-row justify-content-between align-items-center">
+							<strong>$10.000:</strong>
+							<span class="badge badge-secondary" id="cantidad-billete-10000">0</span>
+							<span class="btn btn-primary btn-plus" data-billete="10000"><i class="fas fa-plus-square"></i></span>
+						</div>
+						<div class="d-flex flex-row justify-content-between align-items-center">
+							<strong>$5.000:&nbsp;&nbsp;</strong>
+							<span class="badge badge-secondary" id="cantidad-billete-5000">0</span>
+							<span class="btn btn-primary btn-plus" data-billete="5000"><i class="fas fa-plus-square"></i></span>
+						</div>
+						<div class="d-flex flex-row justify-content-between align-items-center">
+							<strong>$2.000:&nbsp;&nbsp;</strong>
+							<span class="badge badge-secondary" id="cantidad-billete-2000">0</span>
+							<span class="btn btn-primary btn-plus" data-billete="2000"><i class="fas fa-plus-square"></i></span>
+						</div>
+						<div class="d-flex flex-row justify-content-between align-items-center">
+							<strong>$1.000:&nbsp;&nbsp;</strong>
+							<span class="badge badge-secondary" id="cantidad-billete-1000">0</span>
+							<span class="btn btn-primary btn-plus" data-billete="1000"><i class="fas fa-plus-square"></i></span>
+						</div>
+						<div class="d-flex flex-row justify-content-between align-items-center">
+							<strong>$500:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+							<span class="badge badge-secondary" id="cantidad-billete-500">0</span>
+							<span class="btn btn-primary btn-plus" data-billete="500"><i class="fas fa-plus-square"></i></span>
+						</div>
+						<div class="d-flex flex-row justify-content-between align-items-center">
+							<strong>$200:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+							<span class="badge badge-secondary" id="cantidad-billete-200">0</span>
+							<span class="btn btn-primary btn-plus" data-billete="200"><i class="fas fa-plus-square"></i></span>
+						</div>
+						<div class="d-flex flex-row justify-content-between align-items-center">
+							<strong>$100:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+							<span class="badge badge-secondary" id="cantidad-billete-100">0</span>
+							<span class="btn btn-primary btn-plus" data-billete="100"><i class="fas fa-plus-square"></i></span>
+						</div>
+						<div class="d-flex flex-row justify-content-between align-items-center">
+							<strong>$50:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+							<span class="badge badge-secondary" id="cantidad-billete-50">0</span>
+							<span class="btn btn-primary btn-plus" data-billete="50"><i class="fas fa-plus-square"></i></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row shadow p-3 bg-white rounded h-20 float-end" id="div2">
+			<div class="col-12 align-self-center">
+				<h4>Total disponible por denominación</h4> 
+			</div>
+			<div class="col-1 px-1">
+				<p>$50.000: <span class="badge badge-secondary" id="cincuenta_mil"></span></p>
+			</div>
+			<div class="col-1 px-1">
+				<p>$20.000: <span class="badge badge-secondary" id="veinte_mil"></span></p>
+			</div>
+			<div class="col-1 px-1">
+				<p>$10.000: <span class="badge badge-secondary" id="diez_mil"></span></p>
+			</div>
+			<div class="col-1 px-1">
+				<p>$5.000: <span class="badge badge-secondary" id="cinco_mil"></span></p>
+			</div>
+			<div class="col-1 px-1">
+				<p>$2.000: <span class="badge badge-secondary" id="dos_mil"></span></p>
+			</div>
+			<div class="col-1 px-1">
+				<p>$1.000: <span class="badge badge-secondary" id="mil"></span></p>
+			</div>
+			<div class="col-1 px-1">
+				<p>$500: <span class="badge badge-secondary" id="quinientos"></span></p>
+			</div>
+			<div class="col-1 px-1">
+				<p>$200: <span class="badge badge-secondary" id="docientos"></span></p>
+			</div>
+			<div class="col-1 px-1">
+				<p>$100: <span class="badge badge-secondary" id="cien"></span></p>
+			</div>
+			<div class="col-1 px-1">
+				<p>$50: <span class="badge badge-secondary" id="cincuenta"></span></p>
+			</div>
+		</div>
+	</div>
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.25.3/moment.min.js"></script>
+
+	<script type="text/javascript">
+		$( document ).ready(function() {
+			// arreglo en el que se guardara la cantidad de billetes
+			// ingresados para cada denominacion
+			pagado = Array(10).fill(0);
+
+			// variable para guardar el total pagado por el cliente
+			total = 0;
+			// variable para guardar la tarifa por los minutos redondeado
+			costo = 0;
+			// variable con la consulta de que la placa capturada para salida exista en los valores de las placas que existen en los ingresos y que tienen una fecha de salida no definida
+			salida = null;
+			//entonces en la variable ingresos se guardan los ingresos registrados en el local storage convertidos de string a JSON con la función JSON.parse() 
+			ingresos = null;
+
+			// un arreglo con todas las denominaciones de billetes soportadas
+			billetes = [50000, 20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50];
+
+			//variable en la que se guarda la consulta al localStorage del arreglo billetes que contiene los valores asignados por el administrador
+			storage = localStorage.getItem('billetes');
+			//variable a la que se le asigna el arreglo de billetes convertido con el metodo JSON.parse() de arreglo a JSon.
+			cantidades = JSON.parse(storage);
+
+			//se itera sobre las cantidades para garantizar que no existan menos de dos unidades por denominación
+			cantidades.forEach(function(cantidad){
+				//si existe menos de dos unidades por cada denominación
+				//entonces se genera un alerta de sistema deshabilitado y se deshabilita el campo de ingreso de placa para salida
+				if(cantidad<2){
+					alert("Este sistema se encuentra deshabilitado.");
+					$('#placa_salida').attr('disabled', true);
+				}
+			});
+			
+			//a cada uno de los item span se les asigna conforme con el indice el valor correspondiente.
+			$("#cincuenta_mil").html(cantidades[0]);
+			$("#veinte_mil").html(cantidades[1]);
+			$("#diez_mil").html(cantidades[2]);
+			$("#cinco_mil").html(cantidades[3]);
+			$("#dos_mil").html(cantidades[4]);
+			$("#mil").html(cantidades[5]);
+			$("#quinientos").html(cantidades[6]);
+			$("#docientos").html(cantidades[7]);
+			$("#cien").html(cantidades[8]);
+			$("#cincuenta").html(cantidades[9]);
+
+			function encontrar(busqueda, billete, cantidad){
+
+				//si las vueltas que debo entregar son iguales a 0 significa que en cantidad tengo el número de billetes que se requieren por denominación para dar vueltas
+				//entonces retorno el arreglo cantidad que contiene el número de billetes por denominación
+				if(busqueda == 0)
+					return cantidad;
+
+				//si el indice billete es mayor o igual a la logitud del arreglo que contiene los billetes 
+				if(billete >= billetes.length)
+					return null;
+
+				let cant_billetes = Math.floor(busqueda/billetes[billete]);
+				//variable en la que se guarda el minimo entre la cantidad de billetes que es el número de billetes por denominación requeridos y la cantidad disponible por la denominación
+				cant_billetes = Math.min(cant_billetes, cantidades[billete]);
+				//crear arreglo copia de cantidad para no modificar el original`
+				let cantidad_new = [...cantidad];
+				//agregar a el arreglo la catidad de billetes usada por denomincación
+				cantidad_new[billete] = cant_billetes;
+
+				// es una variable que puede ser null o un arreglo con la cantidad de billetes por denominación que encontró la recursión 
+				let cant_con = encontrar(busqueda-(billetes[billete]*cant_billetes), billete+1, cantidad_new);
+				// es una variable que puede ser null o un arreglo con la cantidad de billetes por denominación que encontró la recursión 
+				let cant_sin = encontrar(busqueda, billete+1, cantidad);
+
+				//si la variable cant_con es nula y cant_sin es nula lo cual significa que no existe un camino posible para la entrega de vueltas
+				//entonces el sistema retorna null
+				if(cant_con==null && cant_sin==null)
+					return null;
+
+				//si la variable cant_con es igual a null
+				//entonces retorna cant_con con el arrreglo con los valores por cada denominación
+				if(cant_con==null)
+					return cant_sin;
+				
+				//si la variable cant_sin es igual a null
+				//entonces retorna cant_con con el arrreglo con los valores por cada denominación
+				if(cant_sin==null)
+					return cant_con;
+
+				//variable con la suma los elementos del arreglo cant_con usando función reduce()
+				let sum_con = cant_con.reduce((a, b) => a + b, 0);
+				//variable con la suma los elementos del arreglo cant_sin usando función reduce()
+				let sum_sin = cant_sin.reduce((a, b) => a + b, 0);
+
+
+				// validar si suma con billete es mas pequeño que suma sin billete
+				// entonces retornar cant_con
+				if(sum_con < sum_sin)
+					return cant_con
+				//retornar cant_sin
+				return cant_sin
+			}
+
+			//se asigna el evento keyup() el cual se dispara cuando se suelta una tecla
+			$("#placa_salida").keyup(function(event) { 
+				//variable en la que se guarda la placa a medida que el usuario va ingresando cada letra
+				placa = event.target.value;
+				//en el item span se muestra el valor 0 dado que aun no se ingresa ningun pago
+				$('#valor_ingresado').html("0");
+				//en el item span se muestra el valor 0 dado que aun no se han dado vuetas
+				$('#vueltas').html("0");
+
+				//si la logitud de la placa capturada es diferente de 6 esto corresponde a un error y se realiza un retorno para finalizar la ejecución del programa
+				if (placa.length != 6)
+					return;
+				//variable donde se guarda la consulta del local storage del valor de ingresos que es un arreglo de diccionarios
+				storage_ingresos = localStorage.getItem('ingresos');
+
+				//si existen ingresos en el local storage
+				//entonces en la variable ingresos se guardan los ingresos registrados en el local storage convertidos de string a JSON con la función JSON.parse()
+				if (storage_ingresos != null){
+					ingresos = JSON.parse(storage_ingresos);
+
+					//variable con la consulta de que la placa capturada para salida exista en los valores de las placas que existen en los ingresos y que tienen una fecha de salida no definida
+					salida = ingresos.find(x => x.placa.toLowerCase()==placa.toLowerCase() && x.fecha_salida == undefined);
+					
+					//si la variable es diferente de nulo es decir la placa ingresada para salida registra como un ingreso con fecha de salida indefinida
+					if (salida != null){
+						//entonces se asigna una variable el valor de la fecha de ingreso asignada al momento de registrar el ingreso de la placa la cual por medio del metodo moment() convertimos de string a fecha
+						fecha_ingreso = moment(salida.fecha_ingreso);
+						//al item fecha-ingreso se le asigna el valor guardado en la variable fecha_ingreso
+						$("#fecha-ingreso").html(fecha_ingreso.format('dddd, MMMM Do YYYY, hh:mm:ss'));
+
+						//variable a la que se le asigna la fecha y hora actual por medio del metodo moment()
+						fecha_salida = moment();
+						//al item fecha-salida se le asigna la variable fecha_salida
+						$('#fecha-salida').html(fecha_salida.format('dddd, MMMM Do YYYY, hh:mm:ss'));
+
+						//variable en la que se guarda el calculo de los minutos que existen de diferencia entre la fecha de ingreso y la fecha de salida
+						minutos = fecha_salida.diff(fecha_ingreso, 'minutes');
+						// variable donde se guarda la consulta del local storage del valor de la tarifa
+						tarifa = localStorage.getItem("valor_tarifa");
+						//variable con el costo a pagar por el usuario con metodo round() se redondea la cifra a la centena más cercana 
+						costo = Math.round((tarifa*minutos)/100)*100;
+						//en el item de valor a pagar se muestra el calculo entre la tarifa multiplicada por los minutos calculados y guardados en la variable minutos
+						$('#valor_pagar').html(costo);
+					} else {
+						//si la variable es igual a nulo es decir o bien la placa no tiene un registro de ingreso o bien el registro de ingreso registra una fecha de salida, el sistema genera una alerta para que el usuario verfique.
+						alert("Favor verificar dado que no existen registros de ingreso asociados a la placa ingresada");	
+					}
+				} else {
+					// si la variable es igual a nulo es decir no existen registros de ingresos, entonces el sistema genera una alerta pidiendo al usuario verificar dado que si no existen registros de ingreso no es posible registrar una salida
+					alert("Favor verificar dado que no existen registros de ingreso");
+				}
+
+			}); 
+
+			// evento llamado cada vez que se preciona un botón de agregar billete
+			$('.btn-plus').click(function(){
+				//si el costo a pagar por el usuario es menor o igual a 0
+				//entonces el sistema finaliza la ejecución
+				if(costo<=0)
+					return;
+
+				// sacar el valor del boton presionado sacando el attributo data-billete
+				billete = parseInt($(this).attr('data-billete'));
+
+				// obtenemos el indice del billete precionado 
+				indice_billete = billetes.indexOf(billete);
+
+				// aumento la cantidad de billetes
+				pagado[indice_billete]++;
+
+				// aumento la cantidad ingresada por el usuario para pagar
+				total+=billete;
+
+				// inserto la cantidad de billetes en el label del billete
+				$('#cantidad-billete-'+billete).html(pagado[indice_billete]);
+
+				// ingreso el nuevo valor ingresado por el usuario.
+				$('#valor_ingresado').html(total);
+
+				// si el total de dinero ingresado por el usuario es mayor o igual al monto que requiere pagar el usuario
+				if(total >= costo){
+					//entonces a la variable vueltas se le asigna el valor del total ingresado por el cliente menos el monto que requiere pagar el usuario
+					vueltas = total-costo;
+					//se le asigna al item vueltas el valor de la variable vueltas
+					$('#vueltas').html(vueltas);
+					//variable en la que guardamos el resultado de la ejecución de la función encontrar() donde está la recursión
+					billetes_vueltas = encontrar(vueltas, 0, Array(billetes.length).fill(0));
+					//si el resultado de la ejecución de la función encontrar() donde está la recursión es diferente de null
+					if(billetes_vueltas != null){
+						//entonces 
+						let respuesta = '';
+						for(i=0;i<billetes.length; i++){
+							if(billetes_vueltas[i]>0){
+								respuesta+=' $'+billetes[i]+': '+billetes_vueltas[i];
+								cantidades[i]-=billetes_vueltas[i];
+							}
+						}
+						$("#cincuenta_mil").html(cantidades[0]);
+						$("#veinte_mil").html(cantidades[1]);
+						$("#diez_mil").html(cantidades[2]);
+						$("#cinco_mil").html(cantidades[3]);
+						$("#dos_mil").html(cantidades[4]);
+						$("#mil").html(cantidades[5]);
+						$("#quinientos").html(cantidades[6]);
+						$("#docientos").html(cantidades[7]);
+						$("#cien").html(cantidades[8]);
+						$("#cincuenta").html(cantidades[9]);
+
+						localStorage.setItem("billetes", JSON.stringify(cantidades));
+						
+						salida.fecha_salida = moment();
+						salida.pagado = costo;
+
+						localStorage.setItem("ingresos", JSON.stringify(ingresos));
+
+						alert("Las vueltas a dar son: "+respuesta);
+						alert("Cuenta con 15 minutos para salir, gracias por su visita.");
+
+						total = 0;
+						vueltas = 0;
+						costo = 0;
+
+
+						setTimeout(function(){
+							$("#placa_salida").val('');
+							$("#fecha-ingreso").html('');
+							$('#fecha-salida').html('');
+							$('#valor_pagar').html('');
+							$('#valor_ingresado').html('');
+							$('#vueltas').html('');
+						}, 5000);
+					}
+				}
+			});
+
+		});
+	</script>
+</body>
+</html>

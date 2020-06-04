@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+	<style type="text/css">
+		body{
+			background-color: #d2fafb;
+		}
+		.navbar-custom { 
+			background-color: #2c003e; 
+		} 
+
+		.navbar-custom .navbar-brand, 
+		.navbar-custom .navbar-text { 
+			color: #2c003e; 
+		}
+		.nav-link.active{ 
+			background-color: #fe346e !important; 
+		} 
+		.nav-link{
+			color: #dee3e2;
+		}
+		.nav-link:hover {
+			color: #fe346e;
+			background-color: #512b58;
+		}
+		#div1{
+			color: #2c003e;
+		}
+		.btn-primary{
+			background-color: #2c003e;
+			border-color: #fe346e;
+		}
+		.btn-primary:hover {
+			background-color: #fe346e;
+			border-color: #2c003e;
+		}
+
+
+
+	</style>
+
+	
+	<title>Administración</title>
+</head>
+<body>
+	<div class="container-fluid">
+		<nav class="navbar navbar-custom nav-pills flex-column flex-sm-row">
+			<a class="flex-sm-fill text-sm-center nav-link" href="file:///Users/andrea/Desktop/Documents/EAN/Cuarto%20semestre/ProgramacionAvanzada/Proyecto%20final/index.html">Ingreso</a>
+			<a class="flex-sm-fill text-sm-center nav-link" href="file:///Users/andrea/Desktop/Documents/EAN/Cuarto%20semestre/ProgramacionAvanzada/Proyecto%20final/salida.html">salida</a>
+			<a class="flex-sm-fill text-sm-center nav-link active" href="file:///Users/andrea/Desktop/Documents/EAN/Cuarto%20semestre/ProgramacionAvanzada/Proyecto%20final/administracion.html">Administración</a>
+		</nav>
+		<div class="row justify-content-end">
+			<div class="col-4">
+				<h2>Total: <span class="badge badge-secondary" id="total"></span></h2>
+			</div>
+		</div>
+		<div class="d-flex flex-row justify-content-center h-100" id="divcontador">
+			<div class="col-11">
+				<div class="row py-5">
+					<div class="col-4 offset-1 px-5 shadow p-3 bg-white rounded">
+						<div class="row" id="div1">
+							<h4>Contador</h4> 
+						</div>
+						<div class="row">
+							<div class="col-12 ingreso-table">
+								<div class="d-flex flex-row justify-content-between align-items-center">
+									<strong>$50.000:</strong>
+									<div><input type="number" class="col-form-label-sm " placeholder="" id="cincuentamil" min="2"></div>
+								</div>
+								<div class="d-flex flex-row justify-content-between align-items-center">
+									<strong>$20.000:</strong>
+									<div><input type="number" class="col-form-label-sm" placeholder="" id="veintemil" min="2"></div>
+								</div>
+								<div class="d-flex flex-row justify-content-between align-items-center">
+									<strong>$10.000:</strong>
+									<div><input type="number" class="col-form-label-sm" placeholder="" id="diezmil" min="2"></div>
+								</div>
+								<div class="d-flex flex-row justify-content-between align-items-center">
+									<strong>$5.000:</strong>
+									<div><input type="number" class="col-form-label-sm" placeholder="" id="cincomil" min="2"></div>
+								</div>
+								<div class="d-flex flex-row justify-content-between align-items-center">
+									<strong>$2.000:</strong>
+									<div><input type="number" class="col-form-label-sm" placeholder="" id="dosmil" min="2"></div>
+								</div>
+								<div class="d-flex flex-row justify-content-between align-items-center">
+									<strong>$1.000:</strong>
+									<div><input type="number" class="col-form-label-sm" placeholder="" id="mil" min="2"></div>
+								</div>
+								<div class="d-flex flex-row justify-content-between align-items-center">
+									<strong>$500:</strong>
+									<div><input type="number" class="col-form-label-sm" placeholder="" id="quinientos" min="2"></div>
+								</div>
+								<div class="d-flex flex-row justify-content-between align-items-center">
+									<strong>$200:</strong>
+									<div><input type="number" class="col-form-label-sm" placeholder="" id="docientos" min="2"></div>
+								</div>
+								<div class="d-flex flex-row justify-content-between align-items-center">
+									<strong>$100:</strong>
+									<div><input type="number" class="col-form-label-sm" placeholder="" id="cien" min="2"></div>
+								</div>
+								<div class="d-flex flex-row justify-content-between align-items-center">
+									<strong>$50:</strong>
+									<div><input type="number" class="col-form-label-sm" placeholder="" id="cincuenta" min="2"></div>
+								</div>
+								<div class="d-flex flex-row justify-content-between align-items-center mt-2">
+									<strong>Tarifa por minuto:</strong>
+									<div><input type="number" class="col-form-label-sm" placeholder="" id="tarifa" min="2"></div>
+								</div>
+								<button type="submit" class="mt-3 btn btn-primary text-uppercase ml-auto d-block px-4 btn-sm" id="bguardar">Guardar</button>
+
+							</div>
+						</div>
+					</div>
+					<div class="col-5 offset-1 px-5 shadow p-3 bg-white rounded">
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Placa</th>
+									<th scope="col">Hora de entrada</th>
+									<th scope="col">Hora de salida</th>
+									<th scope="col">Valor pagado</th>
+								</tr>
+							</thead>
+							<tbody id="ingresos">
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+	
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>	
+
+	<script type="text/javascript">
+
+		$( document ).ready(function() {
+
+			storage = localStorage.getItem('billetes');
+			if (storage == null)
+				cantidades = new Array(10);
+			else
+				cantidades = JSON.parse(storage);
+			
+			$("#cincuentamil").val(cantidades[0]);
+			$("#veintemil").val(cantidades[1]);
+			$("#diezmil").val(cantidades[2]);
+			$("#cincomil").val(cantidades[3]);
+			$("#dosmil").val(cantidades[4]);
+			$("#mil").val(cantidades[5]);
+			$("#quinientos").val(cantidades[6]);
+			$("#docientos").val(cantidades[7]);
+			$("#cien").val(cantidades[8]);
+			$("#cincuenta").val(cantidades[9]);
+
+			let vtarifa = localStorage.getItem("valor_tarifa");
+			$("#tarifa").val(vtarifa);
+
+			storage_ingresos = localStorage.getItem('ingresos');
+			total_ingresos = 0;
+			if (storage_ingresos != null){
+				ingresos = JSON.parse(storage_ingresos);
+				tabla = '';
+
+				ingresos.forEach(function(item){
+					tabla+='<tr>'
+					tabla+='<td>'+item.placa+'</td>'
+					tabla+='<td>'+item.fecha_ingreso+'</td>'
+
+					if(item.fecha_salida)
+						tabla+='<td>'+item.fecha_salida+'</td>'
+					else 
+						tabla+='<td></td>'
+					if(item.pagado){
+						tabla+='<td>'+item.pagado+'</td>'
+						total_ingresos+=item.pagado;
+					} else
+						tabla+='<td></td>'
+					tabla+='</tr>'
+				});
+
+				$("#total").html("$ "+total_ingresos);
+
+				$("#ingresos").html(tabla);
+			}
+
+			$( "#bguardar" ).click(function() {
+
+				vcincuentamil = $("#cincuentamil").val();
+				if(vcincuentamil < 2){
+					alert("No se permite ingresar menos de dos billetes por denominación.");
+					return;
+				}
+
+				vveintemil = $("#veintemil").val();
+				if(vveintemil < 2){
+					alert("No se permite ingresar menos de dos billetes por denominación.");
+					return;
+				}
+
+				vdiezmil = $("#diezmil").val();
+				if(vdiezmil < 2){
+					alert("No se permite ingresar menos de dos billetes por denominación.");
+					return;
+				}
+
+				vcincomil = $("#cincomil").val();
+				if(vcincomil < 2){
+					alert("No se permite ingresar menos de dos billetes por denominación.");
+					return;
+				}
+
+				vdosmil = $("#dosmil").val();
+				if(vdosmil < 2){
+					alert("el valor de billetes de dosmil no es valido.");
+					return;
+				}
+
+				vmil = $("#mil").val();
+				if(vmil < 2){
+					alert("No se permite ingresar menos de dos billetes por denominación.");
+					return;
+				}
+
+				vquinientos = $("#quinientos").val();
+				if(vquinientos < 2){
+					alert("No se permite ingresar menos de dos billetes por denominación.");
+					return;
+				}
+
+				vdocientos = $("#docientos").val();
+				if(vdocientos < 2){
+					alert("No se permite ingresar menos de dos billetes por denominación.");
+					return;
+				}
+
+				vcien = $("#cien").val();
+				if(vcien < 2){
+					alert("No se permite ingresar menos de dos billetes por denominación.");
+					return;
+				}
+
+				vcincuenta = $("#cincuenta").val();
+				if(vcincuenta < 2){
+					alert("No se permite ingresar menos de dos billetes por denominación.");
+					return;
+				}
+
+				vtarifa = $("#tarifa").val();
+				if(vtarifa <= 0){
+					alert("el valor de tarifa no es valido.");
+					return;
+				}
+				localStorage.setItem("valor_tarifa", vtarifa);
+
+				cantidades = [vcincuentamil, vveintemil, vdiezmil, vcincomil, vdosmil, vmil, vquinientos, vdocientos, vcien, vcincuenta];
+				alert("cantidades guardadas");
+				localStorage.setItem("billetes", JSON.stringify(cantidades));
+
+			});
+		});
+	</script>
+</body>
+</html>

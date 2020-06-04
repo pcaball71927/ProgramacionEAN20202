@@ -1,0 +1,156 @@
+</!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+	<style type="text/css">
+		body{
+			background-color: #d2fafb;
+		}
+		.navbar-custom { 
+			background-color: #2c003e; 
+		} 
+
+		.navbar-custom .navbar-brand, 
+		.navbar-custom .navbar-text { 
+			color: #2c003e; 
+		}
+		.nav-link.active{ 
+			background-color: #fe346e !important; 
+		} 
+		.nav-link{
+			color: #dee3e2;
+		}
+		.nav-link:hover {
+			color: #fe346e;
+			background-color: #512b58;
+		}
+		#div1{
+			color: #2c003e;
+		}
+		.btn-primary{
+			background-color: #2c003e;
+			border-color: #fe346e;
+		}
+		.btn-primary:hover {
+			background-color: #fe346e;
+			border-color: #2c003e;
+		}
+
+
+	</style>
+
+	<title>Ingreso</title>
+</head>
+<body>
+	<div class="container-fluid">
+		<nav class="navbar navbar-custom nav-pills flex-column flex-sm-row">
+			<a class="flex-sm-fill text-sm-center nav-link active" href="file:///Users/andrea/Desktop/Documents/EAN/Cuarto%20semestre/ProgramacionAvanzada/Proyecto%20final/index.html">Ingreso</a>
+			<a class="flex-sm-fill text-sm-center nav-link" href="file:///Users/andrea/Desktop/Documents/EAN/Cuarto%20semestre/ProgramacionAvanzada/Proyecto%20final/salida.html">salida</a>
+			<a class="flex-sm-fill text-sm-center nav-link" href="file:///Users/andrea/Desktop/Documents/EAN/Cuarto%20semestre/ProgramacionAvanzada/Proyecto%20final/administracion.html">Administración</a>
+		</nav>
+		<div class="d-flex flex-row justify-content-center h-100">
+			<div class="col-8 shadow p-3 bg-white rounded h-50 align-self-center">
+				<div class="col-lg-11 col-sm-10 col-11">
+					<div class="form py-5">
+						<div class="row justify-content-center">
+							<div class="col-10" id="div1">
+								<h2>Nuevo ingreso</h2> 
+							</div>
+							<div class="col-10">
+								<form action="">
+									<div class="form-group">
+										<input type="text" class="form-control" id="placa" placeholder="Placa">
+										<small id="" class="form-text form-alert d-none">Error</small>
+									</div>
+									<div>
+										<p>Hora de ingreso: <span id="fecha-ingreso"></span></p>
+									</div>
+									<div>
+										<p>Tarifa por segundo: $ <span id="tarifa"></span></p>
+									</div>
+									<button type="submit" class="btn btn-primary text-uppercase ml-auto d-block px-4 btn-sm" id="bingreso">Ingreso</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.25.3/moment.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// con la funcion setInterval() que ejecuta una instrucción indefinidamente cada un cierto periodo de tiempo, usamos la función moment() para obtener la fecha y hora.
+			setInterval(function(){
+				fecha = moment().format('dddd, MMMM Do YYYY, hh:mm:ss');
+				$('#fecha-ingreso').html(fecha);
+			}, 1000);
+
+			// variable donde se guarda la consulta del local storage del valor de la tarifa
+			// en el item span tarifa se muestra la variable donde se guardo el valor de la tarifa
+			let tarifa = localStorage.getItem("valor_tarifa");
+			$("#tarifa").html(tarifa);
+
+			// en el item del boton de ingreso se crea el evento click
+			$( "#bingreso" ).click(function() {
+
+				//variable donde se guarda la consulta del local storage del valor de ingresos que es un arreglo de diccionarios
+				var placas = localStorage.getItem('ingresos');
+
+				//validación de que el arreglo ingresos sea igual a nulo
+				//en caso de estar nulo se inicializa el arreglo vacio placas.
+				//en caso de no estar  nullo se inicializa el arreglo placas asignandole el arreglo ingresos de diccionarios usando JSON.parse para convertir de string a json dado que el local storage guarda solo strings
+				if(placas==null)
+					placas = [];
+				else
+					placas = JSON.parse(placas);
+					
+				//variable donde se guarda el valor ingresado por el usuario en el item input placa
+				vplaca = $("#placa").val();
+				//variable con la consulta de que la placa guardada en vplaca exista en los valores de las placas que existen en los ingresos y que tienen una fecha de salida no definida
+				ingreso = placas.find(x => x.placa.toLowerCase()==vplaca.toLowerCase() && x.fecha_salida == undefined);
+
+				//si la variable de validación es diferente de nulo
+				//entonces el sistema alerta que la placa ingresada para un nuevo registro ya tiene un registro previo
+				if (ingreso != null){
+					alert("La placa " + vplaca + " ya tiene un registro de ingreso previo.");
+					return;
+				}
+				// si la longitud de la placa es diferente de 6 que es la logitud normal de las placas en Colombia
+				//entonces el sistema genera una alerta indicando que la placa ingresada no es valida
+				if(vplaca.length != 6){
+					alert("Favor verificar la placa ingresada debido a que no es valida");
+					return;
+				}
+
+				//adicionamos el ingreso al arreglo placas que es un arreglo que contiene diccionarios por cuanto la estructura debe corresponder a la de un diccionario,
+				//la llave placa contiene variable donde se guarda el valor ingresado por el usuario en el item input placa
+				//la fecha de ingreso toma el valor asignado por la función moment()
+				placas.push({
+					"placa": vplaca,
+					"fecha_ingreso": moment()
+				});
+
+				//el sistema genera una alerta confirmando que el ingreso del vehiculo ha sido realizado de forma exitosa
+				alert("La placa " + vplaca + " ha sido ingresada de forma exitosa.");
+
+				//se envia al local storage la llave ingresos y se usa JSON.stringify para covertir el ingreso placas de Json a string
+				localStorage.setItem("ingresos", JSON.stringify(placas));
+			});
+		});
+	</script>
+</body>
+</html>
